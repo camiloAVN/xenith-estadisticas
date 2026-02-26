@@ -22,7 +22,7 @@ const CLIENT_NAME = 'Fontur'
 const STAND_NAME = 'TURISMO CON PROPOSITO'
 const HOURS = ['9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm']
 const DAY_LABELS = ['Día 1', 'Día 2', 'Día 3']
-const EVENT_DATES = ['Día 1 · 10 Mar', 'Día 2 · 11 Mar', 'Día 3 · 12 Mar']
+const EVENT_DATES = ['Día 1 · 25 Feb', 'Día 2 · 26 Feb', 'Día 3 · 27 Feb']
 
 const STAND_COLOR = '#a855f7'
 const STAND_BG = 'rgba(168,85,247,0.08)'
