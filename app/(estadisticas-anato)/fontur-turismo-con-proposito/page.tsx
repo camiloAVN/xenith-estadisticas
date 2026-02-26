@@ -9,6 +9,7 @@
  */
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Download, Users, TrendingUp, Clock, Calendar, BarChart3 } from 'lucide-react'
 import { exportStandExcel } from '../_lib/exportExcel'
 
@@ -262,28 +263,36 @@ export default function EstadisticasStand2() {
     <div className="min-h-screen bg-slate-950 text-white">
       {/* ── Header ── */}
       <header className="sticky top-0 z-30 border-b border-slate-800 bg-slate-950/90 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex items-center gap-3">
-            <div className="text-lg font-black tracking-widest uppercase text-white">
-              XENITH
-            </div>
-            <div className="h-8 w-px bg-slate-700 hidden sm:block" />
-            <div className="hidden sm:block">
-              <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-slate-500 mb-0.5">
-                {CLIENT_NAME}
+        <div className="max-w-5xl mx-auto px-6 py-3">
+          {/* Fila superior: logo + botón */}
+          <div className="flex items-center justify-between gap-4">
+            <div className="flex items-center gap-3 min-w-0">
+              <Image
+                src="/images/xenith-logo.png"
+                alt="XENITH"
+                width={110}
+                height={30}
+                className="h-8 w-auto object-contain shrink-0"
+              />
+              {/* Divisor + título solo en desktop */}
+              <div className="hidden sm:flex items-center gap-3 min-w-0">
+                <div className="h-7 w-px bg-slate-700 shrink-0" />
+                <div className="min-w-0">
+                  <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-slate-500 mb-0.5">
+                    {CLIENT_NAME}
+                  </div>
+                  <h1 className="text-base font-bold text-white leading-tight">
+                    {EVENT_NAME} —{' '}
+                    <span style={{ color: STAND_COLOR }}>{STAND_NAME}</span>
+                  </h1>
+                </div>
               </div>
-              <h1 className="text-lg font-bold text-white leading-tight">
-                {EVENT_NAME} —{' '}
-                <span style={{ color: STAND_COLOR }}>{STAND_NAME}</span>
-              </h1>
             </div>
-          </div>
 
-          <div className="flex items-center gap-2">
             <button
               onClick={handleExport}
               disabled={exporting}
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all disabled:opacity-60 disabled:cursor-wait"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-xs font-semibold border transition-all disabled:opacity-60 disabled:cursor-wait shrink-0"
               style={{
                 backgroundColor: 'rgba(168,85,247,0.1)',
                 borderColor: 'rgba(168,85,247,0.3)',
@@ -299,6 +308,17 @@ export default function EstadisticasStand2() {
               <Download size={11} className={exporting ? 'animate-bounce' : ''} />
               {exporting ? 'Generando...' : 'Descargar Excel'}
             </button>
+          </div>
+
+          {/* Título visible solo en mobile, debajo del logo */}
+          <div className="sm:hidden mt-2 pb-1">
+            <div className="text-[10px] font-bold tracking-[0.2em] uppercase text-slate-500 mb-0.5">
+              {CLIENT_NAME}
+            </div>
+            <h1 className="text-sm font-bold text-white leading-tight">
+              {EVENT_NAME} —{' '}
+              <span style={{ color: STAND_COLOR }}>{STAND_NAME}</span>
+            </h1>
           </div>
         </div>
       </header>
