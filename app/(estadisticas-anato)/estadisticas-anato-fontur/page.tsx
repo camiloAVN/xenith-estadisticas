@@ -466,7 +466,7 @@ export default function EstadisticasStand() {
         {/* ── Video ── */}
         <div className="mt-6 rounded-2xl border border-slate-800 overflow-hidden">
           <video
-            src="/video/camara2_dia1_stand2_4pm.mp4"
+            src="/video/video1.mp4"
             autoPlay
             loop
             muted
