@@ -29,8 +29,8 @@ const STAND_BG = 'rgba(168,85,247,0.08)'
 
 // Datos ficticios Stand 2 — reemplazar con datos reales
 const STAND_DAYS: number[][] = [
-  [102, 165, 305, 109, 175, 189, 223, 374, 320, 209, 80],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [102, 165, 305, 174, 175, 189, 223, 320, 374, 209, 80],
+  [154, 198, 356, 180, 206, 225, 302, 423, 398, 187, 50],
   [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 ]
 
@@ -463,15 +463,24 @@ export default function EstadisticasStand2() {
           <DailyChart />
         </div>
 
+        {/* ── Video ── */}
+        <div className="mt-6 rounded-2xl border border-slate-800 overflow-hidden">
+          <video
+            src="/video/video2.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full"
+          />
+        </div>
+
         {/* ── Footer ── */}
         <div className="mt-10 pb-4 text-center space-y-1">
           <p className="text-xs text-slate-600">
             Reporte generado por{' '}
             <span className="text-slate-500 font-semibold">Xenith</span> ·{' '}
             {new Date().getFullYear()}
-          </p>
-          <p className="text-xs text-slate-700 italic">
-            Datos de ejemplo — reemplazar con información real del evento
           </p>
         </div>
       </main>
